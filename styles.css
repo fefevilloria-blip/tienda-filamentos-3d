@@ -317,6 +317,25 @@ header ul li a:hover {
     margin-top: 15px;
 }
 
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 260px;   /* corregido */
+    overflow-y: auto;
+    padding-right: 5px;  /* evita que el contenido se tape con el scroll */
+    scrollbar-width: thin;
+}
+
+#cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background: #ff3b3b;
+    border-radius: 3px;
+}
+
 /* ==========================
    BOTONES DEL MODAL
 ========================== */

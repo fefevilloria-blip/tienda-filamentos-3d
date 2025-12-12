@@ -381,22 +381,33 @@ document.getElementById("close-cart").addEventListener("click", () => {
     document.getElementById("cart-modal").classList.add("hidden");
 });
 
-/* -------------------------
-   FINALIZAR COMPRA (WhatsApp)
-------------------------- */
+// ================================
+// BOTÓN FINALIZAR COMPRA (WHATSAPP)
+// ================================
 document.getElementById("finish-order").addEventListener("click", () => {
-    if (cart.length === 0) return alert("Tu carrito está vacío.");
+    if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
 
-    let msg = "Hola! Quiero comprar:%0A%0A";
+    let mensaje = "Hola! Quiero realizar la siguiente compra:%0A%0A";
 
-    cart.forEach(i => {
-        msg += `• ${i.tipo} ${i.nombre} x${i.cantidad} — $${(i.precio * i.cantidad).toLocaleString()}%0A`;
+    cart.forEach(item => {
+        const subtotal = item.precio * item.cantidad;
+
+        mensaje += `• ${item.tipo} - ${item.nombre} x${item.cantidad} — $${subtotal.toLocaleString()}%0A`;
     });
 
-    msg += `%0ATotal: $${cart.reduce((a,b)=>a + b.precio * b.cantidad, 0).toLocaleString()}%0A`;
+    const totalFinal = cart.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
 
-    window.open(`https://wa.me/541166019510?text=${msg}`, "_blank");
+    mensaje += `%0ATotal final: $${totalFinal.toLocaleString()}%0A%0AGracias!`;
+
+    const telefono = "541166019510";
+    const url = `https://wa.me/${telefono}?text=${mensaje}`;
+
+    window.open(url, "_blank");
 });
+
 
 /* Iniciar contador */
 updateCartCount();
