@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda 3D – Filamentos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Tienda 3D - Filamentos</h1>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#reseñas">Reseñas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<!-- ===========================
+     SECCIÓN INICIO
+=========================== -->
+<section id="inicio">
+    <h2 class="section-title">Bienvenido a la tienda</h2>
+    <p>Especialistas en filamentos PLA, PETG y ABS para impresoras 3D.</p>
+
+    <div class="video-container fade-in">
+        <video autoplay muted loop playsinline>
+            <source src="videos/intro3d.mp4" type="video/mp4">
+            Tu navegador no soporta reproducción de video.
+        </video>
+    </div>
+</section>
+
+<!-- ICONO DEL CARRITO -->
+<div id="cart-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+</div>
+
+<!-- MODAL DEL CARRITO -->
+<div id="cart-modal" class="hidden">
+    <div class="cart-content">
+
+        <h2>Carrito de Compras</h2>
+
+        <ul id="cart-items"></ul>
+
+        <p class="total">Total: $<span id="cart-total">0</span></p>
+
+        <button id="finish-order" class="btn-finish">Finalizar compra</button>
+
+        <button id="close-cart" class="btn-close">Cerrar</button>
+    </div>
+</div>
+
+
+<!-- ===========================
+     PRODUCTOS
+=========================== -->
+<section id="productos">
+    <h2 class="section-title fade-in">Productos</h2>
+
+    <div class="productos-container">
+
+        <!-- PLA -->
+        <div class="card fade-in">
+            <h3>Filamento PLA</h3>
+            <p>Filamento ideal para impresiones generales y principiantes.</p>
+
+            <div class="colores">
+
+                <!-- PLA ITEMS -->
+                <div class="color-item fade-in" data-tipo="PLA" data-precio="18000" data-nombre="Rojo" data-img="img/filamentos/pla-rojo.jpg">
+                    <div class="precio">$18.000</div>
+                    <img src="img/filamentos/pla-rojo.jpg">
+                    <p>Rojo</p>
+
+                    <!-- CONTADOR PRODUCTO -->
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <div class="color-item fade-in" data-tipo="PLA" data-precio="18000" data-nombre="Azul" data-img="img/filamentos/pla-azul.jpg">
+                    <div class="precio">$18.000</div>
+                    <img src="img/filamentos/pla-azul.jpg">
+                    <p>Azul</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <div class="color-item fade-in" data-tipo="PLA" data-precio="18000" data-nombre="Verde" data-img="img/filamentos/pla-verde.jpg">
+                    <div class="precio">$18.000</div>
+                    <img src="img/filamentos/pla-verde.jpg">
+                    <p>Verde</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+                
+                <div class="color-item fade-in" data-tipo="PLA" data-precio="18000" data-nombre="Amarillo" data-img="img/filamentos/pla-amarillo.jpg">
+                    <div class="precio">$18.000</div>
+                    <img src="img/filamentos/pla-amarillo.jpg">
+                    <p>Amarillo</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <div class="color-item fade-in" data-tipo="PLA" data-precio="18000" data-nombre="Naranja" data-img="img/filamentos/pla-naranja.jpg">
+                    <div class="precio">$18.000</div>
+                    <img src="img/filamentos/pla-naranja.jpg">
+                    <p>Naranja</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <!-- (Resto de PLA con el mismo patrón...) -->
+
+            </div>
+        </div>
+
+
+        <!-- =====================================
+             PETG (con contador)
+        ===================================== -->
+        <div class="card fade-in">
+            <h3>Filamento PETG</h3>
+            <p>Resistente al calor y flexible, ideal para piezas funcionales.</p>
+
+            <div class="colores">
+
+                <div class="color-item fade-in" data-tipo="PETG" data-precio="21000" data-nombre="Transparente" data-img="img/filamentos/petg-transparente.jpg">
+                    <div class="precio">$21.000</div>
+                    <img src="img/filamentos/petg-transparente.jpg">
+                    <p>Transparente</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <!-- (resto PETG igual...) -->
+
+            </div>
+        </div>
+
+
+        <!-- =====================================
+             ABS (con contador)
+        ===================================== -->
+        <div class="card fade-in">
+            <h3>Filamento ABS</h3>
+            <p>Más resistente y duradero; ideal para piezas mecánicas.</p>
+
+            <div class="colores">
+
+                <div class="color-item fade-in" data-tipo="ABS" data-precio="22500" data-nombre="Negro" data-img="img/filamentos/abs-negro.jpg">
+                    <div class="precio">$22.500</div>
+                    <img src="img/filamentos/abs-negro.jpg">
+                    <p>Negro</p>
+
+                    <div class="qty-selector">
+                        <button class="qty-minus">−</button>
+                        <span class="qty-value">1</span>
+                        <button class="qty-plus">+</button>
+                    </div>
+
+                    <button class="btn-cart">Agregar</button>
+                </div>
+
+                <!-- (resto ABS igual...) -->
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===========================
+     CONTACTO (sin cambios)
+=========================== -->
+<section id="contacto">
+    …
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Tienda 3D</p>
+</footer>
+
+<!-- ===========================
+     SCRIPT COMPLETO
+=========================== -->
+
+<script>
+/* -------------------------
+   ANIMACIONES
+------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll(".section-title");
+    const observer1 = new IntersectionObserver(entries => {
+        entries.forEach(e => e.target.classList.toggle("visible", e.isIntersecting));
+    }, { threshold: 0.3 });
+    titles.forEach(t => observer1.observe(t));
+
+    const fades = document.querySelectorAll(".fade-in");
+    const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(e => e.target.classList.toggle("visible", e.isIntersecting));
+    }, { threshold: 0.25 });
+    fades.forEach(f => observer2.observe(f));
+});
+
+
+/* -------------------------
+   CARRITO
+------------------------- */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* Actualizar contador */
+const updateCartCount = () => {
+    const total = cart.reduce((sum, item) => sum + item.cantidad, 0);
+    document.getElementById("cart-count").textContent = total;
+};
+
+/* Renderizar carrito */
+const updateCartModal = () => {
+    const list = document.getElementById("cart-items");
+    const total = document.getElementById("cart-total");
+
+    list.innerHTML = "";
+    let sum = 0;
+
+    cart.forEach((item, i) => {
+        const subtotal = item.precio * item.cantidad;
+        sum += subtotal;
+
+        const li = document.createElement("li");
+        li.classList.add("cart-item");
+
+        li.innerHTML = `
+            <img src="${item.img}" class="thumb">
+            <span>${item.tipo} - ${item.nombre}</span>
+
+            <div class="qty-cart">
+                <button onclick="changeQty(${i}, -1)" class="qty-btn">−</button>
+                <span>${item.cantidad}</span>
+                <button onclick="changeQty(${i}, 1)" class="qty-btn">+</button>
+            </div>
+
+            <strong>$${subtotal.toLocaleString()}</strong>
+
+            <button class="remove-btn" onclick="removeItem(${i})">X</button>
+        `;
+
+        list.appendChild(li);
+    });
+
+    total.textContent = sum.toLocaleString();
+};
+
+/* Cambiar cantidad dentro del carrito */
+function changeQty(index, amount) {
+    cart[index].cantidad += amount;
+
+    if (cart[index].cantidad <= 0) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    updateCartModal();
+}
+
+/* Eliminar item */
+function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    updateCartModal();
+}
+
+/* -------------------------
+   CANTIDADES EN PRODUCTOS
+------------------------- */
+document.addEventListener("click", e => {
+    if (e.target.classList.contains("qty-plus")) {
+        const box = e.target.parentElement;
+        const span = box.querySelector(".qty-value");
+        span.textContent = parseInt(span.textContent) + 1;
+    }
+
+    if (e.target.classList.contains("qty-minus")) {
+        const box = e.target.parentElement;
+        const span = box.querySelector(".qty-value");
+        const value = parseInt(span.textContent);
+        if (value > 1) span.textContent = value - 1;
+    }
+});
+
+
+/* -------------------------
+   AGREGAR AL CARRITO
+------------------------- */
+document.addEventListener("click", e => {
+    if (e.target.classList.contains("btn-cart")) {
+        const box = e.target.closest(".color-item");
+
+        const qty = parseInt(box.querySelector(".qty-value").textContent);
+
+        const item = {
+            nombre: box.dataset.nombre,
+            tipo: box.dataset.tipo,
+            precio: parseInt(box.dataset.precio),
+            img: box.dataset.img,
+            cantidad: qty
+        };
+
+        const existing = cart.find(i => i.nombre === item.nombre && i.tipo === item.tipo);
+
+        if (existing) {
+            existing.cantidad += qty;
+        } else {
+            cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+    }
+});
+
+/* -------------------------
+   ABRIR / CERRAR CARRITO
+------------------------- */
+document.getElementById("cart-icon").addEventListener("click", () => {
+    document.getElementById("cart-modal").classList.remove("hidden");
+    updateCartModal();
+});
+
+document.getElementById("close-cart").addEventListener("click", () => {
+    document.getElementById("cart-modal").classList.add("hidden");
+});
+
+/* -------------------------
+   FINALIZAR COMPRA (WhatsApp)
+------------------------- */
+document.getElementById("finish-order").addEventListener("click", () => {
+    if (cart.length === 0) return alert("Tu carrito está vacío.");
+
+    let msg = "Hola! Quiero comprar:%0A%0A";
+
+    cart.forEach(i => {
+        msg += `• ${i.tipo} ${i.nombre} x${i.cantidad} — $${(i.precio * i.cantidad).toLocaleString()}%0A`;
+    });
+
+    msg += `%0ATotal: $${cart.reduce((a,b)=>a + b.precio * b.cantidad, 0).toLocaleString()}%0A`;
+
+    window.open(`https://wa.me/541166019510?text=${msg}`, "_blank");
+});
+
+/* Iniciar contador */
+updateCartCount();
+</script>
+
+</body>
+</html>

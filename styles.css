@@ -1,0 +1,375 @@
+/* ==========================
+   RESET / BASE
+========================== */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+    background: #1a1a1a;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+header ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+header ul li a:hover {
+    color: #ff3b3b;
+}
+
+/* ==========================
+   TITULOS
+========================== */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================
+   VIDEO
+========================== */
+.video-container {
+    max-width: 850px;
+    margin: 30px auto;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.video-container video {
+    width: 100%;
+}
+
+/* ==========================
+   ANIMACIÓN GLOBAL
+========================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================
+   PRODUCTOS
+========================== */
+.productos-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    text-align: center;
+    font-size: 26px;
+    color: #d60000;
+    margin-bottom: 5px;
+}
+
+.colores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 22px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* --------------------------
+   Ítems de colores
+-------------------------- */
+.color-item {
+    text-align: center;
+    position: relative;
+}
+
+.color-item img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* Precio flotante */
+.precio {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ==========================
+   SELECTOR DE CANTIDAD
+========================== */
+.qty-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.qty-selector button {
+    background: #ff3b3b;
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-selector button:hover {
+    background: #cc2f2f;
+}
+
+.qty-selector .qty-value {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* ==========================
+   BOTÓN AGREGAR
+========================== */
+.btn-cart {
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #ff3b3b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-cart:hover {
+    background: #cc2f2f;
+}
+
+/* ==========================
+   ICONO CARRITO
+========================== */
+#cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff3b3b;
+    padding: 12px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+#cart-icon:hover {
+    background: #cc2f2f;
+}
+
+#cart-count {
+    background: red;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+/* ==========================
+   MODAL CARRITO
+========================== */
+#cart-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+#cart-modal.hidden {
+    display: none;
+}
+
+.cart-content {
+    background: white;
+    padding: 25px;
+    width: 380px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.cart-content h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Lista del carrito */
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 45px 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Cantidades dentro del carrito */
+.qty-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qty-btn {
+    background: #ff3b3b;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-btn:hover {
+    background: #cc2f2f;
+}
+
+/* Eliminar item */
+.remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: darkred;
+}
+
+/* Totales */
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ==========================
+   BOTONES DEL MODAL
+========================== */
+.btn-finish {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.btn-finish:hover {
+    background: #1c7f32;
+}
+
+.btn-close {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: #ff3b3b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.btn-close:hover {
+    background: #cc2f2f;
+}
+
+/* ==========================
+   RESEÑAS
+========================== */
+#reseñas {
+    background: #f2f2f2;
+    padding: 50px 20px;
+    border-radius: 15px;
+}
+
+/* ==========================
+   FORMULARIO
+========================== */
+.formulario-contacto {
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: auto;
+}
